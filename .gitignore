@@ -6,3 +6,7 @@ desktop.ini
 
 # Scanned bulletin archive: far too large for a Pages repo (see README)
 assets/resources/bullitens/
+
+git -C "C:/Users/james/jamesjgriebler.github.io" add -A && git -C "C:/Users/james/jamesjgriebler.github.io" commit -m "Fill in the CV degrees" && git -C "C:/Users/james/jamesjgriebler.github.io" push
+# Personal notes, kept local and off the public site
+HOW-TO-PUBLISH.txt
