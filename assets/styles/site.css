@@ -439,6 +439,27 @@ nav, .nav-item, .button, .caption, .metadata, small {
   color: #FFFFFF;
 }
 
+/* Profile card: photo beside name, used on the CV & Bio page */
+.card-profile {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--space-l);
+  margin-bottom: var(--space-m);
+}
+
+.card-profile img {
+  width: 40%;
+  max-width: 180px;
+  height: auto;
+  border-radius: 4px;
+  background-color: var(--surface);
+}
+
+.card-profile h2 {
+  margin: 0;
+}
+
 /* FOOTER */
 
 footer .footerDisclaimer,
@@ -476,6 +497,14 @@ footer .footerNote span {
   }
 
   .media-container img { max-width: 220px; }
+
+  .card-profile {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .card-profile img { width: 70%; }
 
   .profile-links { justify-content: center; }
 

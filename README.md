@@ -10,17 +10,17 @@ Adapted from the site template by Rachel N. Gaines
 ## Layout
 
 ```
-index.html           Home: name, photo, about, news
-research.html        Research thrusts, one section each
+index.html           Home: name, photo, tagline, about, news
+research.html        Research Vision: thrusts, one section each
 publications.html    Publication cards grouped by year
-teaching.html        Courses and mentoring
-cv.html              Positions, education, awards; links the PDF
-contact.html         Email, office, prospective students
+resources.html       Protocols, code and mentoring documents
+cv.html              CV & Bio: one profile card, degrees, bio, links
 404.html             Served for bad URLs
 assets/styles/site.css
 assets/img/          headshot.jpg, favicon.png, og-card.png
 assets/figures/      Research figures
 assets/pdf/          Paper PDFs linked from publication cards
+assets/resources/    Files linked from the Resources page
 CV/Griebler-CV.pdf   Keep this filename stable; old links must not rot
 ```
 
@@ -43,6 +43,12 @@ Copy the nearest existing page, move `class="active"` to its own nav entry, and
 add the page to the nav list in **all** of the other pages. There is no template
 engine, so the nav is duplicated per file. Six copies is manageable; if the site
 grows past about ten pages, that is the point to add a generator.
+
+The page set mirrors rngaines.github.io: Home, Research Vision, Publications,
+Resources, CV & Bio. A standalone Teaching page and Contact page were written and
+then removed to match; recover either with `git show a436102:teaching.html`.
+Teaching materials otherwise belong under Resources, and contact details on the
+CV & Bio card, which is how hers is arranged.
 
 ## Adding a publication
 
