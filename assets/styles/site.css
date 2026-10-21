@@ -1,0 +1,497 @@
+@charset "utf-8";
+
+/* ==========================================================================
+   Adapted from the site stylesheet by Rachel N. Gaines.
+   Class names are kept identical so improvements port between the two sites.
+   Palette and type per spec; see README.md for the contrast adjustments.
+   ========================================================================== */
+
+/* GLOBAL TYPOGRAPHY AND COLORS */
+
+:root {
+  /* Primary */
+  --primary: #8A9FB0;
+  --primary-light: #AAB8C4;
+  --primary-dark: #657A8B;
+  /* Darker steps, used anywhere text sits on the color or the color is text */
+  --primary-deep: #5E7183;
+  --primary-deeper: #536676;
+
+  /* Accent */
+  --accent: #D2CDD5;
+  --accent-light: #E5E1E8;
+  --accent-dark: #ADA4B2;
+
+  /* Special accent: nav hover/active, button hover, callouts */
+  --special-accent: #6F8E8A;
+  --special-accent-dark: #5C7773;
+
+  /* Neutrals */
+  --surface: #F4F6F7;
+  --background: #FBFCFD;
+  --border: #DDE0E1;
+  --text-dark: #38434D;
+  --text-medium: #67727A;
+  --text-light: #9AA2A8;
+
+  /* Type */
+  --font-logo: "Cinzel", Georgia, serif;
+  --font-heading: "Inter", sans-serif;
+  --font-body: "Figtree", sans-serif;
+  --font-ui: "Inter", sans-serif;
+
+  /* Spacing scale */
+  --space-xs: 0.25rem;
+  --space-s: 0.5rem;
+  --space-m: 1rem;
+  --space-l: 1.5rem;
+  --space-xl: 2rem;
+}
+
+hr {
+  background-color: var(--border);
+  border: 0;
+  height: 1px;
+  margin: var(--space-l) 0;
+}
+
+body {
+  font-family: var(--font-body);
+  font-optical-sizing: auto;
+  color: var(--text-dark);
+  background-color: var(--background);
+  margin-left: auto;
+  margin-right: auto;
+  width: 92%;
+  max-width: 960px;
+  padding-left: 2.275%;
+  padding-right: 2.275%;
+  line-height: 1.7;
+}
+
+/* Headings. h1-h3 are large enough to carry --primary-dark; h4-h6 are not,
+   so they use --text-dark to stay readable. */
+h1 {
+  font-family: var(--font-heading);
+  font-size: 2.25rem;
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--primary-dark);
+}
+
+h2 {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--primary-dark);
+}
+
+h3 {
+  font-family: var(--font-heading);
+  font-size: 1.375rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--primary-dark);
+}
+
+h4 {
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--text-dark);
+}
+
+h5 {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--text-dark);
+}
+
+h6 {
+  font-family: var(--font-heading);
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--text-dark);
+}
+
+p {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--text-medium);
+}
+
+p.large { font-size: 1.125rem; line-height: 1.75; }
+p.small { font-size: 0.875rem; line-height: 1.6; }
+
+/* Body links */
+main a,
+footer a {
+  color: var(--primary-deep);
+  text-decoration-color: var(--accent-dark);
+  text-underline-offset: 2px;
+}
+
+main a:hover,
+footer a:hover {
+  color: var(--special-accent-dark);
+  text-decoration-color: var(--special-accent-dark);
+}
+
+/* UI text */
+nav, .nav-item, .button, .caption, .metadata, small {
+  font-family: var(--font-ui);
+  font-size: 0.875rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  color: var(--text-medium);
+}
+
+/* --text-light is 2.6:1 on the page background, so it is used for rules and
+   borders only. Caption and metadata text uses --text-medium. */
+.caption { font-size: 0.8125rem; color: var(--text-medium); }
+.metadata { font-size: 0.75rem; color: var(--text-medium); }
+
+/* The name, set in the logo face */
+.site-name {
+  font-family: var(--font-logo);
+  font-size: 2.5rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.15;
+  color: var(--primary-dark);
+  margin-bottom: var(--space-xs);
+}
+
+.tagline {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.4;
+  color: var(--text-medium);
+  margin-top: 0;
+}
+
+.highlight {
+  font-family: var(--font-ui);
+  font-weight: 600;
+  color: var(--primary-deep);
+}
+
+/* Unfilled template text. Delete this rule once the site is written. */
+.placeholder {
+  background-color: #FFF4D6;
+  border-bottom: 1px dotted #B8912F;
+  padding: 0 2px;
+}
+
+/* HEADER / TOP NAVIGATION BAR */
+
+.nav-list {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  background-color: var(--primary-deep);
+  margin: 0;
+  padding: 0;
+  border-radius: 4px;
+}
+
+.nav-list li.right { margin-left: auto; }
+.nav-list li.right ~ li.right { margin-left: 0; }
+
+.nav-list li a {
+  display: block;
+  font-family: var(--font-ui);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #FFFFFF;
+  text-decoration: none;
+  text-align: center;
+  padding: var(--space-s) var(--space-m);
+}
+
+.nav-list li a:hover {
+  background-color: var(--primary-deeper);
+  color: #FFFFFF;
+}
+
+.nav-list li a.active {
+  background-color: var(--special-accent-dark);
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+.nav-list li a.active:hover {
+  background-color: var(--special-accent-dark);
+}
+
+.nav-list li:first-child a { border-radius: 4px 0 0 4px; }
+
+/* Icon links in the nav */
+.nav-icon {
+  width: 1.1rem;
+  height: auto;
+  fill: #FFFFFF;
+  vertical-align: middle;
+}
+
+/* MAIN CONTENT */
+
+.section-title {
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  font-size: 1.5rem;
+  color: var(--primary-dark);
+}
+
+/* Profile header: photo beside name */
+.media-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: var(--space-l);
+  margin-bottom: var(--space-l);
+  gap: var(--space-l);
+}
+
+.media-container img {
+  width: 100%;
+  max-width: 260px;
+  height: auto;
+  border-radius: 4px;
+  background-color: var(--surface);
+}
+
+/* Inline links under the name: Scholar, ORCID, CV, email */
+.profile-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-s);
+  margin-top: var(--space-m);
+  padding: 0;
+  list-style: none;
+}
+
+.profile-links a {
+  display: inline-block;
+  font-family: var(--font-ui);
+  font-size: 0.875rem;
+  background-color: var(--primary-deep);
+  color: #FFFFFF;
+  padding: var(--space-xs) var(--space-m);
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.profile-links a:hover {
+  background-color: var(--special-accent-dark);
+  color: #FFFFFF;
+}
+
+/* Callout */
+.callout {
+  background-color: var(--accent-light);
+  border-left: 4px solid var(--special-accent);
+  padding: var(--space-m) var(--space-l);
+  margin: var(--space-l) 0;
+  border-radius: 0 4px 4px 0;
+}
+
+.callout p { color: var(--text-dark); margin: 0; }
+
+/* Research figures */
+.figure {
+  margin: var(--space-l) 0;
+}
+
+.figure img {
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background-color: var(--surface);
+}
+
+.figure figcaption {
+  font-family: var(--font-ui);
+  font-size: 0.8125rem;
+  color: var(--text-medium);
+  margin-top: var(--space-s);
+}
+
+/* CV entries */
+.cv-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--space-l) 0;
+}
+
+.cv-list li {
+  padding: var(--space-s) 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.cv-list li:last-child { border-bottom: 0; }
+
+.cv-list .cv-role {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.cv-list .cv-where {
+  font-family: var(--font-body);
+  color: var(--text-medium);
+}
+
+.cv-list .cv-when {
+  font-family: var(--font-ui);
+  font-size: 0.8125rem;
+  color: var(--text-medium);
+}
+
+/* CARDS */
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-m);
+}
+
+/* One column for publications, which read as a list, not a gallery */
+.card-grid.single { grid-template-columns: 1fr; }
+
+.card {
+  background-color: #FFFFFF;
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--primary);
+  border-radius: 4px;
+  padding: var(--space-m) var(--space-l);
+  margin-bottom: var(--space-m);
+  box-shadow: 0 1px 3px rgba(56, 67, 77, 0.06);
+  transition: box-shadow 0.2s ease, transform 0.2s ease, border-left-color 0.2s ease;
+}
+
+.card:hover {
+  border-left-color: var(--accent-dark);
+  box-shadow: 0 4px 12px rgba(56, 67, 77, 0.10);
+  transform: translateY(-2px);
+}
+
+.card-title {
+  font-family: var(--font-heading);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: var(--space-xs);
+}
+
+.card-authors {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--text-medium);
+  margin-bottom: var(--space-xs);
+}
+
+.card-venue {
+  font-family: var(--font-ui);
+  font-size: 0.875rem;
+  color: var(--primary-deep);
+  margin-bottom: var(--space-s);
+}
+
+.card-abstract {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  margin-bottom: var(--space-m);
+}
+
+.card-link-boxes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-s);
+}
+
+.card-link {
+  display: inline-block;
+  font-family: var(--font-ui);
+  font-size: 0.8125rem;
+  background-color: var(--primary-deep);
+  color: #FFFFFF;
+  padding: var(--space-xs) var(--space-s);
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.card-link:hover {
+  background-color: var(--special-accent-dark);
+  color: #FFFFFF;
+}
+
+/* FOOTER */
+
+footer .footerDisclaimer,
+footer .footerNote {
+  font-family: var(--font-ui);
+  font-size: 0.875rem;
+  line-height: 1.4;
+  color: var(--text-dark);
+  font-weight: 600;
+}
+
+footer .footerDisclaimer span,
+footer .footerNote span {
+  color: var(--text-medium);
+  font-weight: 400;
+}
+
+/* MEDIA QUERIES */
+
+/* Mobile: stack the nav */
+@media only screen and (max-width: 650px) {
+  .nav-list { flex-direction: column; }
+  .nav-list li.right { margin-left: 0; }
+  .nav-list li a { text-align: left; }
+  .nav-list li:first-child a { border-radius: 4px 4px 0 0; }
+}
+
+@media only screen and (max-width: 480px) {
+  body { width: 100%; padding-left: 16px; padding-right: 16px; }
+
+  .media-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .media-container img { max-width: 220px; }
+
+  .profile-links { justify-content: center; }
+
+  .site-name { font-size: 2rem; }
+
+  h1 { font-size: 1.875rem; }
+
+  footer { text-align: center; }
+}
+
+/* Tablet and up: footer splits left and right */
+@media only screen and (min-width: 651px) {
+  footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: var(--space-m);
+  }
+}
