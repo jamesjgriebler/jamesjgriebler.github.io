@@ -13,9 +13,10 @@
   --primary: #8A9FB0;
   --primary-light: #AAB8C4;
   --primary-dark: #657A8B;
-  /* Darker steps, used anywhere text sits on the color or the color is text */
-  --primary-deep: #5E7183;
-  --primary-deeper: #536676;
+  /* Per the style guide: nav bar, links and buttons are all #657A8B. */
+  --primary-deep: #657A8B;
+  /* Nav hover only, one step darker so the hover still reads as a change. */
+  --primary-deeper: #5E7183;
 
   /* Accent */
   --accent: #D2CDD5;
@@ -140,8 +141,8 @@ footer a {
 
 main a:hover,
 footer a:hover {
-  color: var(--special-accent-dark);
-  text-decoration-color: var(--special-accent-dark);
+  color: var(--accent-dark);
+  text-decoration-color: var(--accent-dark);
 }
 
 /* UI text */
