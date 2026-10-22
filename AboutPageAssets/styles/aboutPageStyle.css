@@ -15,6 +15,11 @@
   --secondary-dark: #ADA4B2;
    --secondary-soft: #DFDBE0; 
 
+  /* Active nav item. Dark enough to carry white lettering: 6.1:1.
+     --active-light is the hover step, 4.6:1. */
+  --active: #6A5D7A;
+  --active-light: #7D6F8E;
+
   /* Neutrals */
   --text-dark: #38434D;
   --text-medium: #67727A;
@@ -195,13 +200,14 @@ nav, .nav-item, .button, .caption, .metadata, small {
 
 /* Active page highlighting */
 .nav-list li a.active {
-  background-color: var(--primary-dark);
-  color: var(--secondary-soft);
+  background-color: var(--active);
+  color: #FFFFFF;
   font-weight: 600;
 }
 
 .nav-list li a.active:hover {
-  background-color: var(--primary-light);
+  background-color: var(--active-light);
+  color: #FFFFFF;
 }
 
 .nav-list li.right{
@@ -564,4 +570,32 @@ footer .footerNote span {
     float: right;
     margin-right: var(--space-s);
   }
+}
+/* CONTENT LINKS */
+
+/* Without these, links in the page body fall back to the browser default
+   bright blue. Colour per the style guide: #657A8B, hover #ADA4B2. */
+mainContent a,
+footer a {
+  color: var(--primary-dark);
+  text-decoration-color: var(--secondary-dark);
+  text-underline-offset: 2px;
+}
+
+mainContent a:hover,
+footer a:hover {
+  color: var(--secondary-dark);
+  text-decoration-color: var(--secondary-dark);
+}
+
+/* Links inside cards inherit the card's own colour rather than turning blue */
+.card-venue a,
+.card-abstract a {
+  color: var(--primary-dark);
+  text-decoration-color: var(--secondary-dark);
+}
+
+.card-venue a:hover,
+.card-abstract a:hover {
+  color: var(--primary-dark);
 }
