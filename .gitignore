@@ -1,0 +1,20 @@
+# OS and editor cruft
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+*.tmp
+*~
+
+# Local backup of the previous site structure. Kept on disk, never published:
+# anything committed here is served publicly at jamesjgriebler.github.io/HOLD/
+HOLD/
+
+# Personal notes, kept local and off the public site
+HOW-TO-PUBLISH.txt
+
+# Scanned bulletin archive. GitHub rejects any file over 100 MB, and a
+# published Pages site must stay under 1 GB; this archive is about 2.4 GB.
+# Matched at any depth so it stays excluded wherever the folder is moved.
+**/bullitens/
+**/bulletins/
